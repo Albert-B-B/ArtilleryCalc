@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <!-- css sheet-->
+  <link rel="stylesheet" type="text/css" href="frontpage.css">
+  <!-- engine p5-->
+  <script src="p5.js"></script>
+  <!-- kode til javascript -->
+  <script src="calculator.js"></script>
+  <script src="libraries/p5.svg.js" type="text/javascript"></script>
+
+  <script>
+    var muted = true;
+    function playsong() {
+      if(muted) {
+        muted = false;
+        document.getElementById("sang").play();
+        document.getElementById("muteKnap").src = "assets/mute.svg";
+      }
+      else {
+        muted = true;
+        document.getElementById("sang").pause();
+        document.getElementById("muteKnap").src = "assets/unmute.svg";
+      }
+    }
+  </script>
+  <!-- meta data -->
+  <title>Artillery Calculator</title>
+
+</head>
+<body style="margin: 0 0 0 0">
+  <audio id="sang" loop>
+    <source src="SpaceAmbient.wav" type="audio/wav">
+  </audio>
+  <img src="assets/3adivlogo.png" style="margin-left: 275px;margin-top:50px; position:absolute; top:0; left:0;"></img>
+  <div style="width: 100%; overflow: hidden; margin:0 0 0 0;padding: 0 0 0 0 ">
+    <div style="width: 400px; float: left; margin-left:35px;">
+      <div id="Planet-container" style="border-width:medium medium medium medium;border-color:black;border-style: solid;margin-left: 5px;">
+        <br>
+      <h2>Options</h2>
+      <br>
+      <p>Select Region</p>
+      <select id="regionSelect" onchange="changeRegion()">
+        <option value="https://i.imgur.com/TRl8sds.png">Viper Pit</option>
+        <option value="https://i.imgur.com/v8bgQCI.png">Farranac Coast</option>
+      </select>
+      <br>
+      <button  id="placeArtillery" onclick="moveState = 1;" style="color:#e3e3e3;background-color:#2f7a04;padding: 10 10 10 10;border: none; width:100px;">Place Artillery</button>
+      <br>
+      <button  id="placeTarget" onclick="moveState = 2;" style="color:#e3e3e3;background-color:#ab0011;padding: 10 10 10 10;border: none;width:100px; ">Place Target</button>
+      <br>
+      <button  id="placeSpotter" onclick="moveState = 3;" style="color:#e3e3e3;background-color:#98a300;padding: 10 10 10 10;border: none;width:100px; ">Place Spotter</button>
+      <br>
+      <p id="distanceP"> </p>
+      <p id="azimuthP">  </p>
+    </div>
+    </div>
+    <div style="float:left;margin-top:20px" id="sketch-holder"></div>
+</div>
+</body>

@@ -1,0 +1,59 @@
+body {
+  background-color: #00245e;
+}
+
+#Generel-container {
+  margin-top: 200px;
+  border-width:medium;
+  border-color:black;
+  border-style: solid;
+  background-color: #f9f9f9;
+  height: 750px;
+}
+
+#Planet-container {
+  margin-top: 200px;
+  border-width:medium;
+  border-color:black;
+  border-style: solid;
+  background-color: #f9f9f9;
+  height: 750px;
+}
+
+#Planet-container * {
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#Generel-container * {
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+ appearance: none;
+ width: 180px; /* Full-width */
+ height: 15px; /* Specified height */
+ background: #d3d3d3; /* Grey background */
+ outline: none; /* Remove outline */
+ opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+ -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+ transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #4fd673;
+  cursor: pointer;
+}
+
+* {
+  font-family: Noto Sans, sans-serif;
+}
