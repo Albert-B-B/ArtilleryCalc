@@ -91,8 +91,9 @@ function draw() {
     fill('#2f7a04');
     circle(artyPos[0], artyPos[1], circleSize);
     if (document.getElementById("rangeToggle").checked){
-      fill(255, 255, 255, 0);
+      fill(255, 0, 0, 40);
       circle(artyPos[0], artyPos[1], m2px(minRange)*2);
+      fill(0, 255, 0, 40);
       circle(artyPos[0], artyPos[1], m2px(maxRange)*2);
     }
   }//Artillery
