@@ -21,6 +21,9 @@ let px2mconst = mapWidthMeter/regionWidth;
 let circleSize = 7;
 let moveState = 0;
 
+let minRange = 0;
+let maxRange = 0;
+
 function preload() {
 
 }
@@ -28,10 +31,16 @@ function changeRegion(){
   path = document.getElementById("regionSelect").options[document.getElementById("regionSelect").selectedIndex].value;
   activeRegionImage = loadImage(path);
 }
-
+function changeGun(){
+  if (document.getElementById("gunSelect").selectedIndex==0) {minRange=75;maxRange=250;}//Koronides
+  else if (document.getElementById("gunSelect").selectedIndex==1) {minRange=100;maxRange=300;}//Huber Lariat 120mm
+  else if (document.getElementById("gunSelect").selectedIndex==2) {minRange=100;maxRange=300;}//Huber Exalt 150mm
+  else if (document.getElementById("gunSelect").selectedIndex==3) {minRange=200;maxRange=350;}//50-500 “Thunderbolt” Cannon
+  else if (document.getElementById("gunSelect").selectedIndex==4) {minRange=45;maxRange=80;}//Cremari Mortar
+}
 function setup() {
-
-  activeRegionImage = loadImage(document.getElementById("regionSelect").options[document.getElementById("regionSelect").selectedIndex].value)
+  changeGun();
+  changeRegion();
   canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('sketch-holder');
 }
@@ -47,6 +56,7 @@ function px2m(numb){
 function m2px(numb) {
   return numb/px2mconst;
 }
+
 function getAngle(y,x){
   angle = Math.atan2(y,x)*180/Math.PI
   if (angle < 0) {
@@ -56,6 +66,7 @@ function getAngle(y,x){
   angle = angle % 360
   return angle
 }
+
 
 function updateWind(){
   windStrength = m2px(document.getElementById("windStrength").value)
@@ -76,8 +87,14 @@ function draw() {
   else if (moveState == 3) {spotterPos = [mouseX,mouseY];spotterDrawFlag = true}
 
   if (artyDrawFlag){
-  fill('#2f7a04');
-  circle(artyPos[0], artyPos[1], circleSize);}//Artillery
+    fill('#2f7a04');
+    circle(artyPos[0], artyPos[1], circleSize);
+    if (document.getElementById("rangeToggle").checked){
+      fill(255, 255, 255, 0);
+      circle(artyPos[0], artyPos[1], m2px(minRange));
+      circle(artyPos[0], artyPos[1], m2px(maxRange));
+    }
+  }//Artillery
   if (targetDrawFlag){
   fill('#ab0011');
   circle(targetPos[0], targetPos[1], circleSize);}//Target

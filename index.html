@@ -21,8 +21,7 @@
         <br>
       <h2>Options</h2>
       <br>
-      <p>Select Region</p>
-      <select id="regionSelect" onchange="changeRegion()">
+      <label width="55px">Select Region</label><select id="regionSelect" onchange="changeRegion()">
         <option value="https://albert-b-b.github.io/ArtilleryCalc/assets/MapAcrithiaHex.png">Acrithia</option>
         <option value="https://albert-b-b.github.io/ArtilleryCalc/assets/MapAllodsBightHex.png">Allod's Bight</option>
         <option value="https://albert-b-b.github.io/ArtilleryCalc/assets/MapAshFieldsHex.png">Ash Fields</option>
@@ -64,19 +63,30 @@
       <br>
       <button  id="placeArtillery" onclick="moveState = 1;" style="color:#e3e3e3;background-color:#2f7a04;padding: 10 10 10 10;border: none; width:100px;">Place Artillery</button>
       <br>
-      <button  id="placeTarget" onclick="moveState = 2;" style="color:#e3e3e3;background-color:#ab0011;padding: 10 10 10 10;border: none;width:100px; ">Place Target</button>
+       <button  id="placeTarget" onclick="moveState = 2;" style="color:#e3e3e3;background-color:#ab0011;padding: 10 10 10 10;border: none;width:100px; ">Place Target</button>
       <br>
-      <button  id="placeSpotter" onclick="moveState = 3;" style="color:#e3e3e3;background-color:#98a300;padding: 10 10 10 10;border: none;width:100px; ">Place Spotter</button>
-      <br>
+      <!--- <button  id="placeSpotter" onclick="moveState = 3;" style="color:#e3e3e3;background-color:#98a300;padding: 10 10 10 10;border: none;width:100px; ">Place Spotter</button>
+      <br>--->
       <label width="55px">Wind direction</label><input onchange="updateWind()" type="number" id="windDirection" value="0.0" style="width:60px"></input>
       <br>
       <label width="55px">Wind strength</label><input onchange="updateWind()" type="number" id="windStrength" value="0" style="width:60px"></input>
+      <br>
+      <label width="55px">Show range</label><input style="margin-left:35px;"type="checkbox" id="rangeToggle" name="rangeToggle" checked="true">
+      <br>
+      <label width="55px">Artillery Type</label><select id="gunSelect" onchange="changeGun()">
+        <option>120-68 "Koronides" Field Gun</option>
+        <option>Huber Lariat 120mm</option>
+        <option>Huber Exalt 150mm</option>
+        <option>50-500 “Thunderbolt” Cannon</option>
+        <option>Cremari Mortar</option>
+      </select>
+      <br>
       <br>
       <p id="distanceP"> </p>
       <p id="azimuthP">  </p>
       <br>
       <br>
-      <a href="">Guide</a>
+      <a href="guide.html">Guide</a>
       <a href="about.html">About</a>
     </div>
     </div>
