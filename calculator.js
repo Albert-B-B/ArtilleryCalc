@@ -18,6 +18,7 @@ let regionHeight = 888;
 let regionWidth  = 1024;
 let mapWidthMeter = 1097*2; //1097 comes from https://foxhole.fandom.com/wiki/Community_Guides/Map_Guide.
 let px2mconst = mapWidthMeter/regionWidth;
+console.log(px2mconst)
 let circleSize = 7;
 let moveState = 0;
 
@@ -91,8 +92,8 @@ function draw() {
     circle(artyPos[0], artyPos[1], circleSize);
     if (document.getElementById("rangeToggle").checked){
       fill(255, 255, 255, 0);
-      circle(artyPos[0], artyPos[1], m2px(minRange));
-      circle(artyPos[0], artyPos[1], m2px(maxRange));
+      circle(artyPos[0], artyPos[1], m2px(minRange)*2);
+      circle(artyPos[0], artyPos[1], m2px(maxRange)*2);
     }
   }//Artillery
   if (targetDrawFlag){
