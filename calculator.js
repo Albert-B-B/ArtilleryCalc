@@ -31,7 +31,7 @@ function changeRegion(){
 
 function setup() {
 
-  activeRegionImage = loadImage('https://i.imgur.com/TRl8sds.png')
+  activeRegionImage = loadImage(document.getElementById("regionSelect").options[document.getElementById("regionSelect").selectedIndex].value)
   canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('sketch-holder');
 }

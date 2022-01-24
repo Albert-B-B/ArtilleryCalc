@@ -14,6 +14,7 @@
 </head>
 <body style="margin: 0 0 0 0">
   <img src="assets/3adivlogo.png" style="margin-left: 200px;margin-top:50px; position:absolute; top:0; left:0;"></img>
+  <h1 style="margin-left: 47px;margin-top:150px; position:absolute; top:0; left:0;color:#ffffff;">3ADiv Artillery Calculator</h1>
   <div style="width: 100%; overflow: hidden; margin:0 0 0 0;padding: 0 0 0 0 ">
     <div style="width: 400px; float: left; margin-left:35px;">
       <div id="Planet-container" style="border-width:medium medium medium medium;border-color:black;border-style: solid;margin-left: 5px;">
@@ -67,11 +68,16 @@
       <br>
       <button  id="placeSpotter" onclick="moveState = 3;" style="color:#e3e3e3;background-color:#98a300;padding: 10 10 10 10;border: none;width:100px; ">Place Spotter</button>
       <br>
-      <p id="distanceP"> </p>
-      <p id="azimuthP">  </p>
       <label width="55px">Wind direction</label><input onchange="updateWind()" type="number" id="windDirection" value="0.0" style="width:60px"></input>
       <br>
       <label width="55px">Wind strength</label><input onchange="updateWind()" type="number" id="windStrength" value="0" style="width:60px"></input>
+      <br>
+      <p id="distanceP"> </p>
+      <p id="azimuthP">  </p>
+      <br>
+      <br>
+      <a href="">Guide</a>
+      <a href="about.html">About</a>
     </div>
     </div>
     <div style="float:left;margin-top:20px;margin-left:20px" id="sketch-holder"></div>
