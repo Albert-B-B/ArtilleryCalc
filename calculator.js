@@ -1,6 +1,7 @@
 
 
 let activeRegionImage;
+let gridImage;
 let artyPos = [0,0];
 let targetPos = [0,0];
 let spotterPos = [0,0];
@@ -47,8 +48,12 @@ function changeGun(){
 function setup() {
   changeGun();
   changeRegion();
+  document.getElementById("gridToggle").checked = true;
+  document.getElementById("rangeToggle").checked= true;
+  gridImage = loadImage("https://albert-b-b.github.io/ArtilleryCalc/assets/RegionGrid.png")
   canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('sketch-holder');
+
 }
 
 function dis(x1,y1,x2,y2) {
@@ -115,6 +120,9 @@ function draw() {
   lastY = mouseY
   clear();
   image(activeRegionImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
+  if (document.getElementById("gridToggle").checked){
+    image(gridImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
+  }
   //Are any of the circles being placed
   if (moveState == 1) {artyPos = [mouseX,mouseY];artyDrawFlag = true}
   else if (moveState == 2) {targetPos = [mouseX,mouseY];targetDrawFlag = true}

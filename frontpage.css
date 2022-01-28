@@ -31,7 +31,9 @@ body {
   margin-top: 4px;
   margin-bottom: 4px;
 }
-
+#sketch-holder {
+  
+}
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
  appearance: none;
