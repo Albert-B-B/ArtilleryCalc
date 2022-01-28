@@ -85,13 +85,6 @@ function updateWind(){
 }
 
 function draw() {
-  clear();
-  image(activeRegionImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
-  //Are any of the circles being placed
-  if (moveState == 1) {artyPos = [mouseX,mouseY];artyDrawFlag = true}
-  else if (moveState == 2) {targetPos = [mouseX,mouseY];targetDrawFlag = true}
-  else if (moveState == 3) {spotterPos = [mouseX,mouseY];spotterDrawFlag = true}
-
   if (moveState == 4) {
     deltaX = (mouseX-lastX)*zoom
     deltaY = (mouseY-lastY)*zoom
@@ -120,6 +113,13 @@ function draw() {
   }
   lastX = mouseX
   lastY = mouseY
+  clear();
+  image(activeRegionImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
+  //Are any of the circles being placed
+  if (moveState == 1) {artyPos = [mouseX,mouseY];artyDrawFlag = true}
+  else if (moveState == 2) {targetPos = [mouseX,mouseY];targetDrawFlag = true}
+  else if (moveState == 3) {spotterPos = [mouseX,mouseY];spotterDrawFlag = true}
+
   //Draw artillery
   if (artyDrawFlag){
     fill('#2f7a04');
