@@ -31,6 +31,10 @@ let zoom =  1;
 
 let lastX = 0;
 let lastY = 0;
+
+let gridXnumb = 18;
+let gridYnumb = 15;
+
 function preload() {
 
 }
@@ -122,6 +126,20 @@ function draw() {
   image(activeRegionImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
   if (document.getElementById("gridToggle").checked){
     image(gridImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
+    gridXSquare = int((moveX+mouseX*zoom+3)/(59));
+    gridYSquare = int((moveY+mouseY*zoom+3)/(59));
+    if (gridXSquare >= 0 && gridYSquare >=0 && gridXSquare <=17 && gridYSquare <= 15){
+      text('Grid square ' + String.fromCharCode(gridXSquare+65)+str(gridYSquare+1), 50, 75);
+      strokeWeight(2);
+      stroke('rgba(56,42,14,0.25)');
+      for (i=1;i<3;i++){
+        line((gridXSquare*59+i*59/3-moveX)/zoom, (gridYSquare*59-moveY-2)/zoom, (gridXSquare*59-moveX+i*59/3)/zoom, (gridYSquare*59+59-moveY-2)/zoom);
+        line((gridXSquare*59-moveX-2)/zoom,(gridYSquare*59+i*59/3-moveY)/zoom,(gridXSquare*59+59-moveX-2)/zoom,(gridYSquare*59-moveY+i*59/3)/zoom);
+      }
+    }
+    else {
+      text('Grid square ' + "???", 50, 75);
+    }
   }
   //Are any of the circles being placed
   if (moveState == 1) {artyPos = [mouseX,mouseY];artyDrawFlag = true}
