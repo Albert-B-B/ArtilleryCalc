@@ -48,6 +48,7 @@ function changeGun(){
   else if (document.getElementById("gunSelect").selectedIndex==2) {minRange=100;maxRange=300;}//Huber Exalt 150mm
   else if (document.getElementById("gunSelect").selectedIndex==3) {minRange=200;maxRange=350;}//50-500 “Thunderbolt” Cannon
   else if (document.getElementById("gunSelect").selectedIndex==4) {minRange=45;maxRange=80;}//Cremari Mortar
+  else if (document.getElementById("gunSelect").selectedIndex==5) {minRange=400;maxRange=1000;}//Storm Cannon
 }
 function setup() {
   changeGun();
