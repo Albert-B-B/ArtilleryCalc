@@ -130,7 +130,7 @@ function draw() {
     gridXSquare = int((moveX+mouseX*zoom+3)/(59));
     gridYSquare = int((moveY+mouseY*zoom+3)/(59));
     if (gridXSquare >= 0 && gridYSquare >=0 && gridXSquare <=17 && gridYSquare <= 15){
-      text('Grid square ' + String.fromCharCode(gridXSquare+65)+str(gridYSquare+1), 50, 75);
+      text('Grid square ' +str(gridYSquare+1)+ String.fromCharCode(gridXSquare+65), 50, 75);
       strokeWeight(2);
       stroke('rgba(56,42,14,0.25)');
       for (i=1;i<3;i++){
