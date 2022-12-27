@@ -62,6 +62,7 @@ function changeGun(){
   else if (document.getElementById("gunSelect").selectedIndex==4) {minRange=45;maxRange=80;}//Cremari Mortar
   else if (document.getElementById("gunSelect").selectedIndex==5) {minRange=400;maxRange=1000;}//Storm Cannon
   else if (document.getElementById("gunSelect").selectedIndex==6) {minRange=50;maxRange=100;}//Storm Cannon
+  else if (document.getElementById("gunSelect").selectedIndex==7) {minRange=200;maxRange=275;}//Rocket Truck
 }
 
 function setup() {
@@ -177,8 +178,11 @@ function draw() {
     image(gridImage,0, 0,canvasWidth,canvasHeight,moveX,moveY,regionWidth*zoom,regionHeight*zoom)
     gridXSquare = int((moveX+mouseX*zoom+3)/(59));
     gridYSquare = int((moveY+mouseY*zoom+3)/(59));
+    subSquare = 1+int((moveX+mouseX*zoom-59*gridXSquare)/(59/3))+3*(2-int((moveY+mouseY*zoom-59*gridYSquare)/(59/3)))
+    console.log(subSquare)
     if (gridXSquare >= 0 && gridYSquare >=0 && gridXSquare <=17 && gridYSquare <= 15){
-      text('Grid square ' +str(gridYSquare+1)+ String.fromCharCode(gridXSquare+65), 50, 75);
+      text('Grid square ' +str(gridYSquare+1)+ String.fromCharCode(gridXSquare+65)+str(subSquare), 50, 75);
+      text('Internal Cords X:' +str(int(moveX+mouseX*zoom+3))+ ' Y:' + str(int(moveY+mouseY*zoom+3)), 50, 100);
       strokeWeight(2);
       stroke('rgba(56,42,14,0.25)');
       for (i=1;i<3;i++){
