@@ -120,8 +120,8 @@ function draw() {
     artyDis = document.getElementById("spotterArtyDis").value;
     arty2spotterVec = [artyDis*Math.cos(artyAzm*Math.PI/180),artyDis*Math.sin(artyAzm*Math.PI/180)];
     console.log(spotter2targetVec)
-    document.getElementById("distanceP").innerHTML = "Distance: " + str(Math.round(int(dis(arty2spotterVec[0]+spotter2targetVec[0]-windBias[0],arty2spotterVec[1]+spotter2targetVec[1]-windBias[1],0,0))))+" m"
-    document.getElementById("azimuthP").innerHTML = "Azimuth: " + str(Math.round(getAngle(spotter2targetVec[1]-windBias[1]+arty2spotterVec[1], spotter2targetVec[0]-windBias[0]+arty2spotterVec[0])*10-900)/10) + " deg"
+    document.getElementById("distanceP").innerHTML = "Distance: " + dis(arty2spotterVec[0]+spotter2targetVec[0]-windBias[0],arty2spotterVec[1]+spotter2targetVec[1]-windBias[1],0,0).toFixed(0) +" m"
+    document.getElementById("azimuthP").innerHTML = "Azimuth: " + (getAngle(spotter2targetVec[1]-windBias[1]+arty2spotterVec[1], spotter2targetVec[0]-windBias[0]+arty2spotterVec[0])-90).toFixed(1) + " deg"
 
   }
   else {
@@ -216,11 +216,11 @@ function draw() {
   if (spotterDrawFlag){
   fill('#98a300');
   circle(spotterPos[0], spotterPos[1], circleSize);}//Spotter
-  document.getElementById("distanceP").innerHTML = "Distance: " + str(Math.round(zoom*int(px2m(dis(targetPos[0]-windBias[0],targetPos[1]-windBias[1],artyPos[0],artyPos[1])))))+" m"
-  document.getElementById("azimuthP").innerHTML = "Azimuth: " + str(Math.round(getAngle(targetPos[1]-windBias[1]-artyPos[1], targetPos[0]-windBias[0]-artyPos[0])*10)/10) + " deg"
+  document.getElementById("distanceP").innerHTML = "Distance: " + (zoom*px2m(dis(targetPos[0]-windBias[0],targetPos[1]-windBias[1],artyPos[0],artyPos[1]))).toFixed(0) +" m"
+  document.getElementById("azimuthP").innerHTML = "Azimuth: " + getAngle(targetPos[1]-windBias[1]-artyPos[1], targetPos[0]-windBias[0]-artyPos[0]).toFixed(1) + " deg"
   textSize(20);
   fill(255, 255, 255);
-  text('Zoom ' + str(Math.round(zoom*100)/100)+"x", 50, 50);
+  text('Zoom ' + zoom.toFixed(2) + "x", 50, 50);
   }
 }
 //For moving map
