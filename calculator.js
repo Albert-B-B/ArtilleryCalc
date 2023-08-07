@@ -62,7 +62,7 @@ function changeGun(){
   else if (document.getElementById("gunSelect").selectedIndex==4) {minRange=45;maxRange=80;}//Cremari Mortar
   else if (document.getElementById("gunSelect").selectedIndex==5) {minRange=400;maxRange=1000;}//Storm Cannon
   else if (document.getElementById("gunSelect").selectedIndex==6) {minRange=50;maxRange=100;}//Storm Cannon
-  else if (document.getElementById("gunSelect").selectedIndex==7) {minRange=200;maxRange=275;}//Rocket Truck
+  else if (document.getElementById("gunSelect").selectedIndex==7) {minRange=225;maxRange=375;}//Rocket Truck
 }
 
 function setup() {
